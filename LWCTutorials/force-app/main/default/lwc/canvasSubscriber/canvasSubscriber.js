@@ -1,27 +1,25 @@
-import { LightningElement, track, wire } from 'lwc';
-import { registerListener, unregisterAllListeners } from 'c/pubsub';
-import { currentPageReference } from 'lightning/navigation';
+import { LightningElement,track,wire } from 'lwc';
+import {registerListener,unregisterAllListeners} from 'c/pubsub';
+import {CurrentPageReference} from 'lightning/navigation';
 
 export default class CanvasSubscriber extends LightningElement {
-    @track color;
-    @wire(currentPageReference) pageRef;
+   @track color;
+   @wire(CurrentPageReference) pageRef;
 
-    connectedCallback() {
-        console.log(this, 'connected this color')
-        registerListener('changedColor', this.handleChangedColor, this);
-    }
-
-    disconnectedCallback() {
-        console.log(this, 'disconnected this color');
-        unregisterAllListeners(this);
-    }
-
-    handleChangedColor(colorCode) {
-        console.log("Color --> ", colorCode);
-        this.color = colorCode;
-    }
-    
-    get colorStyle() {
-        return `background-color : ${this.color}`;
+   connectedCallback()
+   {
+       registerListener("changedColor",this.handleChangedColor,this);
+   }
+   disconnectedCallback()
+   {
+       unregisterAllListeners(this);
+   }
+   handleChangedColor(colorCode)
+   {
+       console.log("Color -->"+colorCode);
+       this.color=colorCode;
+   }
+    get colorStyle(){
+        return `background-color:${this.color}`;
     }
 }

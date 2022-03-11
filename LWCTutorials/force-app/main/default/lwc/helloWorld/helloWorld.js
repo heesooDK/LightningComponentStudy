@@ -1,8 +1,6 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 export default class HelloWorld extends LightningElement {
-    @track greeting = 'World';
-    changeHandler(event) {
-        this.greeting = event.target.value;
-    }
+    @api person = 'World';
+    
 }
