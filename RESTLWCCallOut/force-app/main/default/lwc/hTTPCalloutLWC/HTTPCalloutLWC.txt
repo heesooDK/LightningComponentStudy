@@ -1,0 +1,88 @@
+1. getCurrencyDataa 대신 fetch 쓴 버전
+(
+    accessToken 구해야됨.
+    post man or thunder client 에서 curl로 구하기. 근데 이거 어떻게 하냐
+)
+import { LightningElement, track } from 'lwc';
+
+const options = [
+    {
+        label: 'USD',
+        value: 'USD'
+    },
+    {
+        label: 'EUR',
+        value: 'EUR'
+    },
+    {
+        label: 'CAD',
+        value: 'CAD'
+    },
+    {
+        label: 'GBP',
+        value: 'GBP'
+    },
+    {
+        label: 'INR',
+        value: 'INR'
+    },
+]
+
+export default class HTTPCalloutLWC extends LightningElement {
+    @track fromCurrencyValue;
+    @track toCurrencyValue;
+    @track options = options;
+    @track toCurrencyOptions = options;
+    @track conversionData;
+
+    handleFromCurrencyChange(event) {
+        this.fromCurrencyValue = event.detail.value;
+        console.log('fromCurrencyValue : ' + this.fromCurrencyValue);
+    }
+
+    handleToCurrencyChange(event) {
+        this.toCurrencyValue = event.detail.value;
+        console.log('toCurrencyValue : ' + this.toCurrencyValue);
+    }
+
+    handleCurrencyConversion() {
+        // rest api call
+        // check the response
+        // display the response
+        fetch('https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency='
+        + this.fromCurrencyValue + '&to_currency=' + this.toCurrencyValue + '&apikey=06L5D6IDS2HB1IDN',
+        {
+            method: "GET",
+            headers: {
+                "Content-type": 'application/json',
+                "Authorization": 'OAuth '
+            }
+        }).then(res => {
+            return res.json();
+        }).then(jsonRes => {
+            let objData = {
+                From_Currency_Name: '',
+                From_Currency_Code: '',
+                To_Currency_Name: '',
+                To_Currency_Code: '',
+                Last_Refresh: '',
+                Exchange_Rate: ''
+            };
+            window.console.log('jsonresponse : ' + JSON.stringify(jsonRes));
+            let exchangeData = jsonRes['Realtime Currency Exchange Rate'];
+            window.console.log('exchangeData : ' + JSON.stringify(exchangeData));
+            objData.From_Currency_Code = exchangeData['1. From_Currency Code'];
+            objData.From_Currency_Name = exchangeData['2. From_Currency Name'];
+            objData.To_Currency_Code = exchangeData['3. To_Currency Code'];
+            objData.To_Currency_Name = exchangeData['4. To_Currency Name'];
+            objData.Last_Refresh = exchangeData['6. Last Refreshed'];
+            objData.Exchange_Rate = exchangeData['5. Exchange Rate'];
+
+            this.conversionData = objData;
+
+            window.console.log('objData : ', JSON.stringify(objData));
+        }).catch(err => {
+            window.console.log('callout error : ' + err);
+        });
+    }
+}

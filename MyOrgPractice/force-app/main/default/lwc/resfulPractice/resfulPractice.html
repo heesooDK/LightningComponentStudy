@@ -1,0 +1,57 @@
+<template>
+    <lightning-card title="Restful Alpha API Practice"></lightning-card>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="4" padding="around-small">
+            <div class="">
+                <div>
+                    <lightning-combobox title="Select Currency" label="From Base Currency" 
+                        placeholder="--Select--" value={fromCurrencyValue} options={fromCurrencyOptions}
+                        onchange={handleFromCurrencyChange}></lightning-combobox>
+                </div>
+            </div>
+        </lightning-layout-item>
+        
+        <lightning-layout-item size="4" padding="around-small">
+            <div class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <lightning-combobox title="Select Currency" label="To Currency" placeholder="--Select--"
+                        value={toCurrencyValue} options={toCurrencyOptions}
+                        onchange={handleToCurrencyChange} ></lightning-combobox>
+                </div>
+            </div>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="4" padding="around-small">
+            <lightning-button title="Currency Conversion" label="Conversion Rate" variant="brand"
+                onclick={handleCurrencyConversion} disabled={buttonBoolean}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="3" padding="around-small">
+            <div class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <template if:true={labelContent}>
+                        <label class="slds-form-element__label fontSize5" for="form-element-02">{fromCurrencyValue}</label>
+                    </template>
+                    <template if:false={labelContent}>
+                        <label class="slds-form-element__label fontSize5" for="form-element-02">From Base Cunnrecy Select!!</label>
+                    </template>
+                    <lightning-input name="Input Value" value={currencyInputValue} onchange={handleInputValueChange} disabled={inputValue}></lightning-input>
+                </div>
+            </div>
+        </lightning-layout-item>
+
+        <template if:true={exchangeData}>
+            <lightning-layout-item size="12" padding="around-small">
+                <h1>Exchange Rates Information from <b>{fromCurrencyValue}</b> to <b>{toCurrencyValue}</b></h1>
+                <ul class="slds-has-block-links_space">
+                    <li>FROM : { exchangeData.From_Currency_Name }</li>
+                    <li>To : { exchangeData.To_Currency_Name }</li>
+                    <li>Before Exchange : { exchangeData.Currency_Input_Value }</li>
+                    <li>Exchange Rate : { exchangeData.Exchange_Rate }</li>
+                    <li>Last Refreshed : { exchangeData.Last_Refreshed }</li>
+                    <li>Calculation : { exchangeData.Exchange_Calculation }</li>
+                </ul>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

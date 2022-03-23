@@ -1,0 +1,27 @@
+<template>
+    <div class="slds-context-bar">
+        <nav class="slds-context-bar__secondary" role="navigation">
+            <ul class="slds-grid">
+                <li class="slds-context-bar__item slds-is-active">
+                    <a href="#" class="slds-context-bar__label-action" title="Home">
+                        <span class="slds-truncate" title="Home">Home</span>
+                    </a>
+                </li>
+                <li
+                    class="slds-context-bar__item">
+                    <div class="slds-context-bar__label-action" title="Menu Item">
+                        <span class="slds-truncate" title="Menu Item">
+                            Exchange Conversion
+                        </span>
+                    </div>
+                </li>
+                <li class="slds-context-bar__item">
+                    <div class="slds-context-bar__label-action" title="Menu Item" onclick={handleMapsPageClick}>
+                        <span class="slds-truncate" title="Menu Item">Maps & Weather</span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <lightning-button onclick={handleClick} variant="brand"></lightning-button>
+    </div>
+</template>

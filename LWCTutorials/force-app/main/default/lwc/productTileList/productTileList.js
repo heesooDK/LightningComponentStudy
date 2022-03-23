@@ -4,7 +4,9 @@ import getProducts from '@salesforce/apex/ProductController.getProducts';
 import { registerListener, unregisterAllListeners, fireEvent } from 'c/pubsub';
 
 export default class ProductTileList extends LightningElement {
-    @track pageNumber = 1; pageSize; totlaItemCount = 0;
+    @track pageNumber = 1; 
+    @track pageSize; 
+    @track totlaItemCount = 0;
     @track filters = {};
     @wire(CurrentPageReference) pageRef;
     @wire(getProducts, {filters: '$filters', pageNumber: '$pageNumber'}) products;
@@ -23,15 +25,15 @@ export default class ProductTileList extends LightningElement {
     }
 
     handleFilterChange(filters) {
-        this.filters = {...filters};
+        this.filters = { ...filters };
         this.pageNumber = 1;
     }
 
     handlePreviousPage() {
-        this.pageNumber -= 1;
+        this.pageNumber = this.pageNumber - 1;
     }
 
     handleNextPage() {
-        this.pageNumber += 1;
+        this.pageNumber = this.pageNumber + 1;
     }
 }
