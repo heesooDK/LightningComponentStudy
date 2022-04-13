@@ -1,10 +1,47 @@
 ({
-    pathDirection : function(component, fromCoords, toCoords,directionsRenderer, directionsService) {
-        // directionsService.route({
-        //     origin:
-        // })
+    pathDirection : function(component, directionsRenderer, directionsService) {
+        var fromInput = component.find("fromInput").getElement();
+        var fromSearchBox = new google.maps.places.SearchBox(fromInput);
+        var toInput = component.find("toInput").getElement();
+        var toSearchBox = new google.maps.places.SearchBox(toInput);
+        var travelMode = component.get("v.travelMode");
+        var fromCoords;
+        var toCoords;
+
+        fromSearchBox.addListener("places_changed", function() {
+            var places = fromSearchBox.getPlaces()
+            console.log(places[0], " :: from[0]")
+            fromCoords = {
+                lat: places[0].geometry.location.lat(),
+                lon: places[0].geometry.location.lng()
+            }
+
+            component.set("v.fromCoords", fromCoords);
+        });
+
+        toSearchBox.addListener("places_changed", function() {
+            var places = toSearchBox.getPlaces()
+            console.log(places[0], " :: to[0]")
+            toCoords = {
+                lat: places[0].geometry.location.lat(),
+                lon: places[0].geometry.location.lng()
+            }
+
+            component.set("v.toCoords", toCoords);
+        });
+        directionsService.route({
+            origin: fromCoords,
+            destination: toCoords,
+            travelMode: travelMode
+        }).then(res => {
+            console.log(res, " :: res")
+            directionsRenderer.setDirections(res)
+        }).catch(e => {
+            console.log("error : ", e)
+        })
     },
     placeSearch: function(component, event, map) {
+        var coords = component.get("v.coords")
         var coordsEvent = $A.get("e.c:childDataTransfer");
 
         var markerExpose = new google.maps.Marker({

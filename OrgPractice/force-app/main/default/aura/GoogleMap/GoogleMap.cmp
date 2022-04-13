@@ -10,7 +10,7 @@
     <aura:attribute name="fromCoords" type="Map" default="" />
     <aura:attribute name="toPlaceInput" type="String" default="" />
     <aura:attribute name="toCoords" type="Map" default="" />
-    <aura:attribute name="travelMode" type="String" default="drive" />
+    <aura:attribute name="travelMode" type="String" default="DRIVE" />
 
     <aura:handler event="c:childDataTransfer" action="{!c.handleCoordsEvent}"/>
 
@@ -23,7 +23,7 @@
         <h1>LON : {!v.coords.lon}</h1>
         <div class="slds-grid slds-wrap">
             <div class="slds-col slds-size_1-of-4">
-                <button name="drive" >
+                <button name="DRIVE" >
                     <i class="fa-solid fa-car fa-2xl" />
                 </button>
             </div>
