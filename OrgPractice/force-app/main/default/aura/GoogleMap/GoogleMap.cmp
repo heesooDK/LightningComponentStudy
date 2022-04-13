@@ -1,0 +1,61 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+
+    <ltng:require scripts="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsSGXdg_olw_uN9hPn7bNPatiywsPtj3M&amp;libraries=places&amp;v=weekly" afterScriptsLoaded="{!c.googleMap}" />
+    <!-- <script src="https://kit.fontawesome.com/4aeb4d04be.js" crossorigin="anonymous"></script> -->
+    <ltng:require scripts="https://kit.fontawesome.com/4aeb4d04be.js" />
+
+    <aura:attribute name="coords" type="Map" />
+    <aura:attribute name="address" type="String" default="" />
+    <aura:attribute name="fromPlaceInput" type="String" default="" />
+    <aura:attribute name="fromCoords" type="Map" default="" />
+    <aura:attribute name="toPlaceInput" type="String" default="" />
+    <aura:attribute name="toCoords" type="Map" default="" />
+    <aura:attribute name="travelMode" type="String" default="drive" />
+
+    <aura:handler event="c:childDataTransfer" action="{!c.handleCoordsEvent}"/>
+
+    
+    <div class="slds-box">
+        <input aura:id="searchInput" type="text" value="{!v.address}" class="slds-input search-input slds-var-m-top_medium" />
+        <div aura:id="mapAura" id="map"></div>
+        <h1>GOOGLE MAP</h1>
+        <h1>LAT : {!v.coords.lat}</h1>
+        <h1>LON : {!v.coords.lon}</h1>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-4">
+                <button name="drive" >
+                    <i class="fa-solid fa-car fa-2xl" />
+                </button>
+            </div>
+            <div class="slds-col slds-size_1-of-4">
+                <i class="fa-solid fa-bus fa-2xl" />
+            </div>
+            <div class="slds-col slds-size_1-of-4">
+                <i class="fa-solid fa-person-walking fa-2xl" />
+            </div>
+            <div class="slds-col slds-size_1-of-4">
+                <i class="fa-solid fa-person-biking fa-2xl" />
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-align_absolute-center slds-text-heading_large">
+                길찾기
+            </div>
+            <div class="slds-col slds-size_5-of-12">
+                <input aura:id="fromInput" type="text" value="{!v.fromPlaceInput}" class="slds-input slds-var-m-top_medium" />
+            </div>
+            <div class="slds-col slds-size_1-of-12 slds-align_absolute-center slds-var-m-top_medium">
+                <img src="{! $Resource.Icon + '/utility/forward_60.png' }" alt="forward" class="icon-slds" />
+            </div>
+            <div class="slds-col slds-size_5-of-12">
+                <input aura:id="toInput" type="text" value="{!v.toPlaceInput}" class="slds-input slds-var-m-top_medium" />
+            </div>
+            <div class="slds-col slds-size_1-of-12 slds-align_absolute-center slds-var-m-top_medium">
+                <div class="slds-var-p-around_xx-small trending-icon" onclick="{!c.direction}">
+                    <img src="{! $Resource.Icon + '/utility/trending_60.png' }" alt="trending" class="icon-slds" />
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</aura:component>

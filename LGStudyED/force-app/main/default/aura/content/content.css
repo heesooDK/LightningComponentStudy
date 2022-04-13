@@ -1,0 +1,270 @@
+.THIS .slds-is-fixed {
+    top: 125px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: #404750;
+
+}
+
+.THIS .content-container {
+    width: 1560px;
+    margin-top: 90px;
+    flex-direction: column;
+}
+
+.THIS .content-container #first-section h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.THIS .card-badge {
+    font-size: 13px;
+    color: #757B83;
+    background: #F3F4F6;
+    margin: 0 8px;
+    padding: 2px 5px;
+}
+
+.THIS .arrow-button {
+    width: 52px;
+    height: 52px;
+    border: 1px solid #E8E8E8;
+    text-align: center;
+    line-height: 52px;
+}
+
+.THIS .arrow-button:first-child {
+    margin-right: 32px;
+}
+
+.THIS .arrow-button:last-child {
+    margin-left: 32px;
+}
+
+.THIS .arrow-button > img {
+    width: 26px;
+}
+
+.THIS .trand-img-slider {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.THIS #first-section .img-slider-container {
+    width: 1408px;
+    overflow: hidden;
+}
+
+/* .THIS #first-section .img-slider > div.slide:first-child {
+    width: calc(calc(1408px/3)*12);
+    display: flex;
+    position: relative;
+    
+}
+
+.THIS #first-section .slide:first-child > div.slds-card {
+    width: calc(1336px/3) !important;
+    margin: 0 12px 1rem 12px;
+} */
+
+.THIS .slider-card {
+    margin: 0;
+    padding: 0;
+}
+
+.THIS .slider-card img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.THIS #second-section {
+    width: 100%;
+    margin-top: 120px;
+}
+
+.THIS #second-section .section-header {
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.THIS #second-section .slds-is-fixed ul {
+    align-items: center;
+}
+
+.THIS #second-section .section-header ul li {
+    font-size: 18px;
+    color: #CACACA;
+    margin: 0 16px;
+}
+
+.THIS #second-section .section-header ul li:first-child {
+    margin-left: 0;
+}
+
+.THIS #second-section .section-header ul li:last-child {
+    height: 40px;
+    padding: 0 16px;
+    background-color: #F3F4F6;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.THIS #second-section .slds-is-fixed  ul li:last-child {
+    background-color: #404750;
+}
+
+.THIS #second-section .section-header ul li:last-child input {
+    color: #282828;
+    height: 100%;
+    background-color: #F3F4F6;
+    border: none;
+}
+
+.THIS #second-section .section-header ul li:last-child img {
+    margin-left: 8px;
+    object-fit: fill;
+}
+
+.THIS #second-section .section-header ul li:last-child input:focus {
+    outline: none;
+}
+
+.THIS #second-section .section-header ul li.is-active {
+    color: #282828 !important;
+    font-weight: 700;
+}
+
+.THIS #second-section .content > div {
+    margin-bottom: 40px;
+    margin-right: 24px;
+    width: 372px;
+}
+/* 
+.THIS #second-section .content div img {
+    width: 100%;
+    height: 320px;
+} */
+
+.THIS #second-section .content > div:nth-child(4n) {
+    margin-right: 0px;
+}
+
+.THIS #first-section .slide div footer,
+.THIS #second-section .content div footer {
+    text-align: left;
+}
+
+.THIS #first-section .slide div footer p:first-child,
+.THIS #second-section .content div footer p:first-child {
+    margin-bottom: 12px;
+}
+
+.THIS #first-section .slide div footer p:last-child > span:first-child,
+.THIS #second-section .content div footer p:last-child > span:first-child {
+    margin-left: 0;
+}
+
+.THIS #second-section #pagination {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.THIS #second-section #pagination span {
+    width: 20px;
+}
+
+.THIS #second-section #pagination span:nth-child(2):nth-child(3) {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.THIS #second-section #pagination ul li {
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.THIS #second-section .slds-is-fixed ul {
+    margin: 0 auto;
+    max-width: 1560px;
+    height: 64px;
+}
+
+.THIS #second-section .slds-is-fixed ul > li:first-child {
+    margin-left: 0px !important;
+}
+
+.THIS #second-section .slds-is-fixed ul li:nth-child(5) {
+    margin-right: 0px !important;
+}
+
+.THIS #second-section .slds-is-fixed ul li:not(:last-child) {
+    color: #7A7F85;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.THIS #second-section .slds-is-fixed ul li:last-child,
+.THIS #second-section .slds-is-fixed ul li:last-child input {
+    color: #FFF;
+    background: #535A62;
+}
+
+.THIS #second-section .slds-is-fixed ul li.is-active {
+    color: #FFF !important;
+    font-weight: 700;
+}
+
+.THIS #second-section .slds-is-fixed ul li:not(:last-child) {
+    color: #7A7f85;
+}
+
+.THIS .slds-card > div {
+    position: relative;
+    padding-top: 100%;
+    overflow: hidden;
+}
+
+.THIS .slds-card footer {
+    margin: 15px;
+}
+
+.THIS .slds-card footer p:first-child {
+    font-weight: 900;
+}
+
+.THIS .slds-card:hover  {
+    box-shadow: rgba(0, 0, 0, 0.05) 10px 16px 12px -2px;
+    transition: all 0.1s linear;
+}
+
+.THIS .slds-card:hover img {
+    transform: scale(1.1);
+    transition: all 0.1s linear;
+    overflow: hidden;
+}
+
+.THIS .slds-card:hover p:first-child {
+    text-decoration: underline;
+}
+
+.THIS .fixed-header-animation {
+    height: 0;
+    max-height: 64px;
+    background: #FFF;
+    position: fixed;
+    top: 125px;
+    z-index: 11;
+}

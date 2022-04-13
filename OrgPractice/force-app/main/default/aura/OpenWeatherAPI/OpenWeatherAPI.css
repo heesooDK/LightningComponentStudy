@@ -1,0 +1,5 @@
+.THIS .weather-list {
+    /* @sldsValidatorIgnore */
+    white-space: nowrap;
+    cursor: grab;
+}

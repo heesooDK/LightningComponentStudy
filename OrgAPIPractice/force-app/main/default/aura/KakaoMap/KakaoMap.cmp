@@ -1,0 +1,21 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+
+    <ltng:require scripts="https://dapi.kakao.com/v2/maps/sdk.js?appkey=7de6dcf51ae2bdb0126f6976c282b41a" afterScriptsLoaded="{!c.kakaoMap}" />
+    <!-- <ltng:require scripts="{! $Resource.KakaoMapLoad}" afterScriptsLoaded="{!c.kakaoMap}"/> -->
+
+    <!-- <aura:handler name="init" value="{!this}" action="{!c.initTest}" /> -->
+
+    <aura:attribute name="coords" type="Map" />
+
+    <aura:handler event="c:childDataTransfer" action="{!c.handleCoordsEvent}"/>
+
+    
+    <div class="slds-box">
+        <div aura:id="mapAura" id="kakaoMap"></div>
+        <h1>KAKAO MAP</h1>
+        <h1>LAT : {!v.coords.lat}</h1>
+        <h1>LON : {!v.coords.lon}</h1>
+        <lightning:button onclick="{!c.setCoordsButton}">coords set button</lightning:button>
+    </div>
+    
+</aura:component>

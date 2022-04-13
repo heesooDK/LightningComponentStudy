@@ -1,0 +1,127 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="OpenWeatherController">
+    <aura:attribute name="coords" type="Map" />
+    <aura:attribute name="weatherData" type="Map" />
+    <aura:attribute name="directionCoords" type="Map" />
+    <aura:attribute name="fromWeatherData" type="Map" />
+    <aura:attribute name="toWeatherData" type="Map" />
+
+    <aura:handler event="c:childDataTransfer" action="{!c.handleCoordsEvent}" />
+
+    <div class="slds-box">
+        <aura:if isTrue="{!v.fromWeatherData}">
+            <div class="slds-box">
+                <p>
+                <h1>출발지 날씨</h1>
+                </p>
+                <h2 class="slds-text-align_center">{!v.fromWeatherData.cityName}</h2>
+                <ul aura:id="weatherCmp" class="slds-list_horizontal slds-scrollable_x weather-list">
+                    <aura:iteration items="{!v.fromWeatherData.weatherList}" var="weather" indexVar="key">
+                        <li class="slds-item weather-list slds-box slds-var-m-around_xx-small" key="{!key}">
+                            <!-- 날짜 -->
+                            <h2>
+                                <aura:iteration start="{!key}" end="{!key + 1}" items="{!v.fromWeatherData.Date}"
+                                    var="date">
+                                    <label class="slds-var-m-around_xxx-small">{!date.month}월</label>
+                                    <label class="slds-var-m-around_xxx-small">{!date.day}일</label>
+                                    <label class="slds-var-m-around_xxx-small">{!date.hour}시</label>
+                                </aura:iteration>
+                            </h2>
+                            <!-- 컨디션 -->
+                            <p>날씨 : {!weather.weather[0].main}</p>
+                            <!-- 강수확률 -->
+                            <p>강수확률 : {!weather.pop} %</p>
+                            <!-- 습도 -->
+                            <p>습도 : {!weather.main.humidity} %</p>
+                            <!-- 최고기온, 최저기온 -->
+                            <div>
+                                <p>최고 기온 : {!weather.main.temp_max}°C</p>
+                                <p>최저 기온 : {!weather.main.temp_min}°C</p>
+                            </div>
+                            <div class="slds-text-align_center">
+                                <img src="{!'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png'}"
+                                    alt="pic" />
+                            </div>
+                        </li>
+                    </aura:iteration>
+                </ul>
+            </div>
+            <div class="slds-box" title="TO CITY WEATHER">
+                <p>
+                <h1>도착지 날씨</h1>
+                </p>
+                <h2 class="slds-text-align_center">{!v.toWeatherData.cityName}</h2>
+                <ul aura:id="weatherCmp" class="slds-list_horizontal slds-scrollable_x weather-list">
+                    <aura:iteration items="{!v.toWeatherData.weatherList}" var="weather" indexVar="key">
+                        <li class="slds-item weather-list slds-box slds-var-m-around_xx-small" key="{!key}">
+                            <!-- 날짜 -->
+                            <h2>
+                                <aura:iteration start="{!key}" end="{!key + 1}" items="{!v.toWeatherData.Date}"
+                                    var="date">
+                                    <label class="slds-var-m-around_xxx-small">{!date.month}월</label>
+                                    <label class="slds-var-m-around_xxx-small">{!date.day}일</label>
+                                    <label class="slds-var-m-around_xxx-small">{!date.hour}시</label>
+                                </aura:iteration>
+                            </h2>
+                            <!-- 컨디션 -->
+                            <p>날씨 : {!weather.weather[0].main}</p>
+                            <!-- 강수확률 -->
+                            <p>강수확률 : {!weather.pop} %</p>
+                            <!-- 습도 -->
+                            <p>습도 : {!weather.main.humidity} %</p>
+                            <!-- 최고기온, 최저기온 -->
+                            <div>
+                                <p>최고 기온 : {!weather.main.temp_max}°C</p>
+                                <p>최저 기온 : {!weather.main.temp_min}°C</p>
+                            </div>
+                            <div class="slds-text-align_center">
+                                <img src="{!'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png'}"
+                                    alt="pic" />
+                            </div>
+                        </li>
+                    </aura:iteration>
+                </ul>
+            </div>
+
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.weatherData}">
+                    <!-- 지역 이름 -->
+                    <h2 class="slds-text-align_center">{!v.weatherData.cityName}</h2>
+                    <ul aura:id="weatherCmp" class="slds-list_horizontal slds-scrollable_x weather-list">
+                        <aura:iteration items="{!v.weatherData.weatherList}" var="weather" indexVar="key">
+                            <li class="slds-item weather-list slds-box slds-var-m-around_xx-small" key="{!key}">
+                                <!-- 날짜 -->
+                                <h2>
+                                    <aura:iteration start="{!key}" end="{!key + 1}" items="{!v.weatherData.Date}"
+                                        var="date">
+                                        <label class="slds-var-m-around_xxx-small">{!date.month}월</label>
+                                        <label class="slds-var-m-around_xxx-small">{!date.day}일</label>
+                                        <label class="slds-var-m-around_xxx-small">{!date.hour}시</label>
+                                    </aura:iteration>
+                                </h2>
+                                <!-- 컨디션 -->
+                                <p>날씨 : {!weather.weather[0].main}</p>
+                                <!-- 강수확률 -->
+                                <p>강수확률 : {!weather.pop} %</p>
+                                <!-- 습도 -->
+                                <p>습도 : {!weather.main.humidity} %</p>
+                                <!-- 최고기온, 최저기온 -->
+                                <div>
+                                    <p>최고 기온 : {! weather.main.temp_max}°C</p>
+                                    <p>최저 기온 : {!weather.main.temp_min}°C</p>
+                                </div>
+                                <div class="slds-text-align_center">
+                                    <img src="{!'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png'}"
+                                        alt="pic" />
+                                </div>
+                            </li>
+                        </aura:iteration>
+                    </ul>
+                    <aura:set attribute="else">
+                        <h1>현재 위치를 찾을 수 없습니다.</h1>
+                    </aura:set>
+
+                </aura:if>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

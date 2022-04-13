@@ -1,0 +1,225 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+
+    <ltng:require scripts="{!$Resource.swiper + '/swiper-bundle.min.js'}" styles="https://unpkg.com/swiper/swiper-bundle.min.css" 
+                    afterScriptsLoaded="{!c.swiperSlide}" />
+
+    <aura:attribute name="inputSearchImg" type="String" />
+    <!-- <aura:attribute name="slideLeft" type="Decimal" default="0" /> -->
+    <aura:attribute name="categoryList" type="List" default="[]" />
+    <aura:attribute name="imageSlides" type="Map" />
+    <aura:attribute name="selectedCategory" type="String" default="전체" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div>
+        <div class="content-container slds-align_absolute-center">
+            <section id="first-section">
+                <h1>트렌드</h1>
+                <div class="trand-img-slider">
+                    <div aura:id="leftButton" class="arrow-button">
+                        <img src="{! $Resource.sliderArrow + '/left.svg'}" alt="LEFT" />
+                    </div>
+                    <div class="img-slider-container">
+                        <div class="img-slider">
+                            <!-- <div aura:id="slideAura" class="left-button slide">
+                                <aura:iteration items="{!v.imageSlides}" var="image" indexVar="key">
+                                    <div aura:id="imgCard" class="slds-card">
+                                        <div class="slds-card__body slds-card__body_inner slider-card">
+                                            <img src="{! $Resource.LGSliderImage + '/' + image.imgId + 'th-image.png'}"
+                                                alt="{! '이미지 ' + image.id}" />
+                                        </div>
+                                        <footer class="slds-card__footer">
+                                            <p>
+                                                {!image.content}
+                                            </p>
+                                            <p>
+                                                <aura:iteration items="{!image.badge}" var="badge">
+                                                    <span class="card-badge">{!badge}</span>
+                                                </aura:iteration>
+                                            </p>
+                                        </footer>
+                                    </div>
+                                </aura:iteration>
+                            </div> -->
+                            <div class="slide mySwiper swiper" id="swiper">
+                                <div class="swiper-wrapper">
+                                    <aura:iteration items="{!v.imageSlides}" var="image" indexVar="key">
+                                        <div class="slds-card swiper-slide">
+                                            <div class="slds-card__body slds-card__body_inner slider-card">
+                                                <img src="{! $Resource.LGSliderImage + '/' + image.imgId + 'th-image.png'}"
+                                                    alt="{! '이미지 ' + image.id}" />
+                                            </div>
+                                            <footer class="slds-card__footer">
+                                                <p>
+                                                    {!image.content}
+                                                </p>
+                                                <p>
+                                                    <aura:iteration items="{!image.badge}" var="badge">
+                                                        <span class="card-badge">{!badge}</span>
+                                                    </aura:iteration>
+                                                </p>
+                                            </footer>
+                                        </div>
+                                    </aura:iteration>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div aura:id="rightButton" class="right-button arrow-button">
+                        <img src="{! $Resource.sliderArrow + '/right.svg'}" alt="RIGHT" />
+                    </div>
+                </div>
+            </section>
+            <section id="second-section">
+                <div aura:id="fixedHeaderAnimation" class="fixed-header-animation"></div>
+                <div aura:id="secondFixedHeader" class="section-header">
+                    <ul class="slds-list_horizontal">
+                        <aura:iteration items="{!v.categoryList}" var="category">
+                            <li name="{! category }" class="{! v.selectedCategory == category ? 'is-active' : ''  }"
+                                onclick="{! c.categoryClick }">{! category }</li>
+                        </aura:iteration>
+                        <li>
+                            <input type="text" placeholder="Please enter a search term" />
+                            <img src="{! $Resource.LGImageSample + '/images/ico-search.svg'}" alt="인풋 서치 이미지" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="content slds-grid slds-wrap">
+                    <div class="slds-col slds-size_3-of-12">
+                        <div class="slds-card">
+                            <div class="slds-card__body slds-card__body_inner slider-card">
+                                <img src="{! $Resource.LGSliderImage + '/1th-image.png'}" alt="세번째 이미지" />
+                            </div>
+                            <footer class="slds-card__footer">
+                                <p>
+                                    퀴즈로 풀어보는 소재이야기_EM 편
+                                </p>
+                                <p>
+                                    <span class="card-badge">프로모션</span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_3-of-12">
+                        <div class="slds-card">
+                            <div class="slds-card__body slds-card__body_inner slider-card">
+                                <img src="{! $Resource.LGSliderImage + '/2th-image.png'}" alt="세번째 이미지" />
+                            </div>
+                            <footer class="slds-card__footer">
+                                <p>
+                                    EM 공장 제조 공정
+                                </p>
+                                <p>
+                                    <span class="card-badge">프로모션</span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_3-of-12">
+                        <div class="slds-card">
+                            <div class="slds-card__body slds-card__body_inner slider-card">
+                                <img src="{! $Resource.LGSliderImage + '/3th-image.png'}" alt="세번째 이미지" />
+                            </div>
+                            <footer class="slds-card__footer">
+                                <p>
+                                    친환경 자동차 소재로 지구를 지켜라
+                                </p>
+                                <p>
+                                    <span class="card-badge">프로모션</span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_3-of-12">
+                        <div class="slds-card">
+                            <div class="slds-card__body slds-card__body_inner slider-card">
+                                <img src="{! $Resource.LGSliderImage + '/4th-image.png'}" alt="세번째 이미지" />
+                            </div>
+                            <footer class="slds-card__footer">
+                                <p>
+                                    [ABS, PC, LUMID] 바람을 조절해..
+                                </p>
+                                <p>
+                                    <span class="card-badge">프로모션</span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_3-of-12">
+                        <div class="slds-card">
+                            <div class="slds-card__body slds-card__body_inner slider-card">
+                                <img src="{! $Resource.LGSliderImage + '/5th-image.png'}" alt="세번째 이미지" />
+                            </div>
+                            <footer class="slds-card__footer">
+                                <p>
+                                    [LUPOX] 전기와 전장폼의 커플매..
+                                </p>
+                                <p>
+                                    <span class="card-badge">프로모션</span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_3-of-12">
+                        <div class="slds-card">
+                            <div class="slds-card__body slds-card__body_inner slider-card">
+                                <img src="{! $Resource.LGSliderImage + '/6th-image.png'}" alt="세번째 이미지" />
+                            </div>
+                            <footer class="slds-card__footer">
+                                <p>
+                                    [LUMID] 엔진의 열을 알맞게 유지..
+                                </p>
+                                <p>
+                                    <span class="card-badge">프로모션</span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_3-of-12">
+                        <div class="slds-card">
+                            <div class="slds-card__body slds-card__body_inner slider-card">
+                                <img src="{! $Resource.LGSliderImage + '/7th-image.png'}" alt="세번째 이미지" />
+                            </div>
+                            <footer class="slds-card__footer">
+                                <p>
+                                    친환경 자동차 소재로 지구를 지키다
+                                </p>
+                                <p>
+                                    <span class="card-badge">프로모션</span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_3-of-12">
+                        <div class="slds-card">
+                            <div class="slds-card__body slds-card__body_inner slider-card">
+                                <img src="{! $Resource.LGSliderImage + '/8th-image.png'}" alt="세번째 이미지" />
+                            </div>
+                            <footer class="slds-card__footer">
+                                <p>
+                                    EM 공장 제조 공정
+                                </p>
+                                <p>
+                                    <span class="card-badge">프로모션</span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div id="pagination" class="slds-list_horizontal slds-align_absolute-center">
+                    <span><img src="{! $Resource.SLDSIcon + '/utility/jump_to_left_60.png' }" alt="뒤로가기" /></span>
+                    <span><img src="{! $Resource.SLDSIcon + '/utility/chevronleft_60.png' }" alt="뒤로가기" /></span>
+                    <ul class="slds-list_horizontal">
+                        <li>01</li>
+                        <li>02</li>
+                        <li>03</li>
+                        <li>04</li>
+                        <li>05</li>
+                    </ul>
+                    <span><img src="{! $Resource.SLDSIcon + '/utility/chevronright_60.png' }" alt="앞으로가기" /></span>
+                    <span><img src="{! $Resource.SLDSIcon + '/utility/jump_to_right_60.png' }" alt="앞으로가기" /></span>
+                </div>
+            </section>
+        </div>
+    </div>
+</aura:component>

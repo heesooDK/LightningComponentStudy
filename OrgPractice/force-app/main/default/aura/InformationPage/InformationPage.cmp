@@ -1,0 +1,19 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="latEvent" type="c:childDataTransfer" />
+
+    <h1>Simple Application Event Sample</h1>
+
+    <div>
+        <div class="slds-grid slds-nowrap">
+            <div class="slds-col slds-size_3-of-5">
+                <c:GoogleMap />
+            </div>
+            <div class="slds-col slds-size_2-of-5">
+                <c:OpenWeatherAPI />
+            </div>
+        </div>
+    </div>
+
+</aura:component>	

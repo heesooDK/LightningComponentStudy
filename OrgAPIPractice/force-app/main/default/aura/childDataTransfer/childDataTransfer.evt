@@ -1,0 +1,7 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="coords" type="Map" default="{lat: '', lon: ''}" />
+    <aura:attribute name="directionCoords" type="Map" default="{
+        fromCoords: { lat: '', lon: '' },
+        toCoords: { lat: '', lon: '' }
+    }" />
+</aura:event>

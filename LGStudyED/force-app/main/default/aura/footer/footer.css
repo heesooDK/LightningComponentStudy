@@ -1,0 +1,57 @@
+.THIS {
+    width: 1560px;
+    margin: 0 auto;
+}
+
+.THIS #line {
+    border: 1px solid #787d84;
+    margin: 20px 0;
+}
+
+.THIS ul li:nth-child(2n) {
+    border-right: 1px solid #F3F4F6;
+    border-left: 1px solid #F3F4F6;
+    margin: 0 10px;
+}
+
+.THIS #company-copy-info {
+    display: inline-block;
+}
+
+.THIS #company-copy #company-copy-info p {
+    margin-bottom: 5px;
+}
+
+.THIS #company-copy #company-copy-info p span {
+    font-weight: 900;
+}
+
+.THIS #company-copy #company-copy-info p:last-child {
+    margin-top: 10px;
+    color: #c9c9ca;
+}
+
+.THIS #company-copy #divide {
+    border-right: 1px solid #F3F4F6;
+    border-left: 1px solid #F3F4F6;
+    margin: 0 10px;
+}
+
+.THIS #company-copy #company-copy-info p span:not(#divide) {
+    font-weight: 600;
+}
+
+.THIS #company-copy-add {
+    text-align: right;
+    float: right;
+}
+
+.THIS #company-copy-add select {
+    width: 150px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.THIS #company-copy-add .simbol {
+    width: 170px;
+}

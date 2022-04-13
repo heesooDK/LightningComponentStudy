@@ -1,0 +1,27 @@
+.THIS #map {
+    height: 500px;
+}
+
+.THIS .search-input {
+    width: 70%;
+}
+
+.THIS .icon-slds {
+    width: 25px;
+}
+
+.THIS .trending-icon {
+    border-radius: 5px;
+    background-color: aquamarine;
+    cursor: pointer;
+}
+
+.THIS .trending-icon > img {
+    filter: hue-rotate(300deg);
+}
+
+.THIS .fa-car::before {
+    background: #E8F0FE;
+    border-radius: 15px;
+    padding: 6px;
+}
