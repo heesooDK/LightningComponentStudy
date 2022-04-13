@@ -1,7 +1,7 @@
 ({
     googleMap : function(component, event, helper) {
         var coords = component.get("v.coords")
-        var coordsEvent = $A.get("e.c:childDataTransfer");
+        // var coordsEvent = $A.get("e.c:childDataTransfer");
 
         var mapContainer = component.find("mapAura").getElement();
         var mapOption = {
@@ -10,56 +10,57 @@
         };
         
         var map = new google.maps.Map(mapContainer, mapOption);
-        var markerExpose = new google.maps.Marker({
-            map,
-            position: { lat: coords.lat, lng: coords.lon }
-        })
+        helper.placeSearch(component, event, map)
+        // var markerExpose = new google.maps.Marker({
+        //     map,
+        //     position: { lat: coords.lat, lng: coords.lon }
+        // })
         
-        var input = component.find("searchInput").getElement();
-        var searchBox = new google.maps.places.SearchBox(input);
+        // var input = component.find("searchInput").getElement();
+        // var searchBox = new google.maps.places.SearchBox(input);
 
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
         
-        map.addListener("bounds_changed", function() {
-            searchBox.setBounds(map.getBounds());
-        });
+        // map.addListener("bounds_changed", function() {
+        //     searchBox.setBounds(map.getBounds());
+        // });
 
 
-        searchBox.addListener("places_changed", function() {
-            const places = searchBox.getPlaces();
-            const place = places[0];
+        // searchBox.addListener("places_changed", function() {
+        //     const places = searchBox.getPlaces();
+        //     const place = places[0];
             
-            if (places.length == 0) {
-                return;
-            }
+        //     if (places.length == 0) {
+        //         return;
+        //     }
             
-            const bounds = new google.maps.LatLngBounds();
+        //     const bounds = new google.maps.LatLngBounds();
             
-            if (!place.geometry || !place.geometry.location) {
-                console.log("Returned place contains no geometry");
-                return;
-            }
+        //     if (!place.geometry || !place.geometry.location) {
+        //         console.log("Returned place contains no geometry");
+        //         return;
+        //     }
 
-            markerExpose.setMap(null)
+        //     markerExpose.setMap(null)
             
-            if (place.geometry.viewport) {
-                bounds.union(place.geometry.viewport);
-            } else {
-                bounds.extend(place.geometry.location);
-            }
+        //     if (place.geometry.viewport) {
+        //         bounds.union(place.geometry.viewport);
+        //     } else {
+        //         bounds.extend(place.geometry.location);
+        //     }
 
             
-            map.fitBounds(bounds);
+        //     map.fitBounds(bounds);
             
-            coordsEvent.setParams({
-                coords: {
-                    lat: place.geometry.location.lat(),
-                    lon: place.geometry.location.lng()
-                }
-            });
+        //     coordsEvent.setParams({
+        //         coords: {
+        //             lat: place.geometry.location.lat(),
+        //             lon: place.geometry.location.lng()
+        //         }
+        //     });
                          
-            coordsEvent.fire();
-        });
+        //     coordsEvent.fire();
+        // });
         
         // FROM 과 TO 의 좌표 구하기.
 
