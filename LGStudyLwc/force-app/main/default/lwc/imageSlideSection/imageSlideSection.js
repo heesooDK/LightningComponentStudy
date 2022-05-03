@@ -1,5 +1,5 @@
 import { LightningElement, track, api } from 'lwc';
-import { loadScript } from 'lightning/platformResourceLoader'
+import { loadScript, loadStyle } from 'lightning/platformResourceLoader'
 import salesforceSlideImgUrl from '@salesforce/resourceUrl/LGSliderImage'
 import swiperResource from '@salesforce/resourceUrl/swiper'
 
@@ -56,31 +56,53 @@ export default class ImageSlideSection extends LightningElement {
     connectedCallback() {
         this.imagesSlide.map(item => item.url = `${salesforceSlideImgUrl}/${item.imgId}th-image.png`);
 
-        loadScript(this, swiperResource + '/swiper-bundle.min.js').then(() => {
-            return new Promise((resolve, reject) => {
-                console.log("프로미스 개체 안에 들어옴")
-                var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: '3',
-                    spaceBetween: 20,
-                    loop: true,
-                    autoplay: {
-                      delay: 2000,
-                      disableOnInteraction: false
-                    },
-                    navigation: {
-                        nextEl: ".right-button",
-                        prevEl: ".left-button"
-                    },
-                    allowTouchMove: false,
-                });
+        // loadScript(this, swiperResource + '/swiper-bundle.min.js').then(() => {
+        //     return new Promise((resolve, reject) => {
+        //         console.log("프로미스 개체 안에 들어옴")
+        //         var swiper = new Swiper(".mySwiper", {
+        //             slidesPerView: '3',
+        //             spaceBetween: 20,
+        //             loop: true,
+        //             autoplay: {
+        //               delay: 2000,
+        //               disableOnInteraction: false
+        //             },
+        //             navigation: {
+        //                 nextEl: ".right-button",
+        //                 prevEl: ".left-button"
+        //             },
+        //             allowTouchMove: false,
+        //         });
 
-                resolve(swiper)
-                console.log("일단 성공")
-            })
-        })
+        //         resolve(swiper)
+        //         console.log("일단 성공")
+        //     })
+        // })
+        
     }
 
     renderedCallback() {
-        
+        Promise.all([
+            loadScript(this, swiperResource + '/swiper-bundle.min.js'),
+            loadStyle(this, swiperResource + '/swiper-bundle.min.css')
+        ]).then((resolve) => {
+            console.log("프로미스 개체 안에 들어옴")
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 3,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false
+                },
+                navigation: {
+                    nextEl: ".right-button",
+                    prevEl: ".left-button"
+                },
+                allowTouchMove: false,
+            });
+
+            console.log("일단 성공")
+        })
     }
 } 

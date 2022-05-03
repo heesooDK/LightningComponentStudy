@@ -83,5 +83,27 @@ export default class SecondSection extends LightningElement {
 
     renderedCallback() {
         this.template.querySelector('li:first-child').classList.add('is-active');
+
+        let secondHeader = this.template.querySelector('[data-id="secondFixedHeader"]')
+        let headerAnimation = this.template.querySelector('[data-id="fixedHeaderAnimation"]')
+
+        
+        window.addEventListener('scroll', function() {
+            let scroll = window.scrollY;
+            
+            if (scroll > 564) {
+                console.log(scroll)
+                headerAnimation.style.height = 64 - (window.pageYOffset - 564) + "px";
+                headerAnimation.style.border = '1px solid #FFF';
+                secondHeader.classList.add('slds-is-fixed');
+                headerAnimation.classList.add('slds-is-fixed');
+                if (scroll > 627) {
+                    headerAnimation.style.height = 0;
+                }
+            } else {
+                secondHeader.classList.remove('slds-is-fixed');
+                headerAnimation.classList.remove('slds-is-fixed');
+            }
+        })
     }
 }

@@ -3,6 +3,15 @@
     text-align: left;
 }
 
+.slds-is-fixed {
+    top: 125px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: #404750;
+
+}
+
 .slds-is-fixed ul {
     align-items: center;
 }
@@ -177,4 +186,20 @@
     left: 0;
     bottom: 0;
     right: 0;
+}
+
+.content div footer {
+    text-align: left;
+}
+
+.content div footer p:last-child > span:first-child {
+    margin-left: 0;
+}
+
+.card-badge {
+    font-size: 13px;
+    color: #757B83;
+    background: #F3F4F6;
+    margin: 0 8px;
+    padding: 2px 5px;
 }

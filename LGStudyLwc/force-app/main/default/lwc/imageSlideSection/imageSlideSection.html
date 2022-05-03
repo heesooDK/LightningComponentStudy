@@ -8,14 +8,14 @@
                 <div class="slider mySwiper swiper">
                     <div class="swiper-wrapper">
                         <template iterator:it={imagesSlide} >
-                            <div class="swiper-slide" key={it.value.id}>
-                            <!-- <div class="slds-card swiper-slide" key={it.value.id}> -->
-                                <div class="slider-card">
-                                <!-- <div class="slds-card__body slds-card__body_inner slider-card"> -->
+                            <!-- <div class="swiper-slide" key={it.value.id}> -->
+                            <div class="slds-card swiper-slide" key={it.value.id}>
+                                <!-- <div class="slider-card"> -->
+                                <div class="slds-card__body slds-card__body_inner slider-card">
                                     <img src={it.value.url} alt={it.value.imgId} />
                                 </div>
-                                <footer>
-                                <!-- <footer class="slds-card__footer"> -->
+                                <!-- <footer> -->
+                                <footer class="slds-card__footer">
                                     <p>
                                         {it.value.content}
                                     </p>

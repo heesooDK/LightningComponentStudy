@@ -80,10 +80,14 @@
     overflow: hidden;
 }
 
-.slide div footer p:first-child {
+.slider div footer {
+    text-align: left;
+}
+
+.slider div footer p:first-child {
     margin-bottom: 12px;
 }
 
-.slide div footer p:last-child > span:first-child {
+.slider div footer p:last-child > span:first-child {
     margin-left: 0;
 }

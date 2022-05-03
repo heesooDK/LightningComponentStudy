@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="slds-is-relative">
+        <div data-id="fixedFirstHeader" class="slds-is-relative">
             <div class="header-container slds-list_horizontal">
                 <img src={LgLogo} alt="LG 로고 이미지" class="abc" />
                 <div class="navigation slds-align_absolute-center">
@@ -30,30 +30,30 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="fixed-header-top slds-clearfix">
-            <div class="slds-float_left">
-                <span>홈</span>
-                <span>&nbsp;&nbsp;>&nbsp;&nbsp;</span>
-                <span>트렌드</span>
-            </div>
-            <div class="slds-float_right">
-                <ul class="slds-list_horizontal">
-                    <li>
-                        <img src={productSearchAllImg} alt="제품 물성 검색 이미지" />
-                        <span>제품 물성 검색</span>
-                    </li>
-                    <li></li>
-                    <li>
-                        <img src={oemSearchAllImg} alt="OEM 소재로 검색 이미지" />
-                        <span>OEM소재로 검색</span>
-                    </li>
-                    <li></li>
-                    <li>
-                        <img src={contactUsImg} alt="고객문의 이미지" />
-                        <span>고객문의</span>
-                    </li>
-                </ul>
+            <div class="fixed-header-top slds-clearfix">
+                <div class="slds-float_left">
+                    <span>홈</span>
+                    <span>&nbsp;&nbsp;>&nbsp;&nbsp;</span>
+                    <span>트렌드</span>
+                </div>
+                <div class="slds-float_right">
+                    <ul class="slds-list_horizontal">
+                        <li>
+                            <img src={productSearchAllImg} alt="제품 물성 검색 이미지" />
+                            <span>제품 물성 검색</span>
+                        </li>
+                        <li></li>
+                        <li>
+                            <img src={oemSearchAllImg} alt="OEM 소재로 검색 이미지" />
+                            <span>OEM소재로 검색</span>
+                        </li>
+                        <li></li>
+                        <li>
+                            <img src={contactUsImg} alt="고객문의 이미지" />
+                            <span>고객문의</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

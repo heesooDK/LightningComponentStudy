@@ -1,0 +1,57 @@
+footer {
+    width: 1560px;
+    margin: 0 auto;
+}
+
+.line {
+    border: 1px solid #787d84;
+    margin: 20px 0;
+}
+
+ul li:nth-child(2n) {
+    border-right: 1px solid #F3F4F6;
+    border-left: 1px solid #F3F4F6;
+    margin: 0 10px;
+}
+
+.company-copy-info {
+    display: inline-block;
+}
+
+.company-copy .company-copy-info p {
+    margin-bottom: 5px;
+}
+
+.company-copy .company-copy-info p span {
+    font-weight: 900;
+}
+
+.company-copy .company-copy-info p:last-child {
+    margin-top: 10px;
+    color: #c9c9ca;
+}
+
+.company-copy .divide {
+    border-right: 1px solid #F3F4F6;
+    border-left: 1px solid #F3F4F6;
+    margin: 0 10px;
+}
+
+.company-copy .company-copy-info p span:not(.divide) {
+    font-weight: 600;
+}
+
+.company-copy-add {
+    text-align: right;
+    float: right;
+}
+
+.company-copy-add select {
+    width: 150px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.company-copy-add .simbol {
+    width: 170px;
+}

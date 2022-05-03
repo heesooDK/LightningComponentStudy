@@ -1,7 +1,7 @@
 <template>
     
-    <div class="fixed-header-animation"></div>
-    <div class="section-header">
+    <div data-id="fixedHeaderAnimation" class="fixed-header-animation"></div>
+    <div data-id="secondFixedHeader" class="section-header">
         <ul class="slds-list_horizontal">
             <template iterator:it={categoryList}>
                 <!-- javascript custom attribute -->
@@ -35,7 +35,7 @@
         </template>
     </div>
     <div class="slds-list_horizontal slds-align_absolute-center pagination">
-        <span><button label="">&lt;&lt;</button></span>
+        <span><button>&lt;&lt;</button></span>
         <span><button>&lt;</button></span>
         <ul class="slds-list_horizontal">
             <li>01</li>
