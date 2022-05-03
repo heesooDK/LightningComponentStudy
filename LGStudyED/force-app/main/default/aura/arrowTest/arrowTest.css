@@ -1,2 +1,152 @@
-.THIS {
+/* [E] Pager */
+.THIS .pager {
+    text-align: center;
+    font-size: 15px;
+}
+
+.THIS .pager>button {
+    position: relative;
+    overflow: hidden;
+    width: 30px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    color: transparent
+}
+
+.THIS .pager>button:hover {
+    background-color: transparent;
+}
+
+.THIS .pager>button+a,
+.THIS .pager>button+b {
+    margin-left: 26px;
+}
+
+.THIS .pager>a+button,
+.THIS .pager>b+button {
+    margin-left: 26px;
+}
+
+.THIS .pager>a,
+.THIS .pager>b {
+    display: inline-block;
+    min-width: 30px;
+    margin: 0 0 0 7px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.THIS .pager>a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.THIS .pager>b,
+.THIS .pager>a.active {
+    color: #da1047;
+}
+
+.THIS .pager>button.prevPage::after {
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    transform: rotate(225deg);
+}
+
+.THIS .pager>button.firstPage::before {
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    content: '';
+    width: 2px;
+    height: 16px;
+    border-left: 2px solid #000;
+}
+
+.THIS .pager>button.firstPage::after {
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    transform: rotate(225deg);
+}
+
+.THIS .pager>button.nextPage::after {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    transform: rotate(45deg);
+}
+
+.THIS .pager>button.lastPage::after {
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #000;
+    transform: rotate(225deg);
+}
+
+.THIS .pager>button.lastPage::before {
+    position: absolute;
+    left: 19px;
+    top: 3px;
+    content: '';
+    width: 2px;
+    height: 16px;
+    border-right: 2px solid #000;
+}
+
+.THIS .pager>button.disable {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.THIS .pager>button.disable:hover {
+    background-color: transparent;
+}
+
+.THIS .pager.bottom-pager {
+    width: 106px;
+    height: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 72%;
+    left: calc(50% - 47px);
+}
+
+.THIS .pager>button.dot,
+.THIS .pager>button.dot:hover {
+    background-color: #000000;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+}
+
+.THIS .pager>button.line,
+.THIS .pager>button.line:hover {
+    background-color: #000000;
+    width: 40px;
+    height: 4px;
+    border-radius: 12px;
 }

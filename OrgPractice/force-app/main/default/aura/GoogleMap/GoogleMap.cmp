@@ -10,7 +10,6 @@
     <aura:attribute name="fromCoords" type="Map" default="" />
     <aura:attribute name="toPlaceInput" type="String" default="" />
     <aura:attribute name="toCoords" type="Map" default="" />
-    <aura:attribute name="travelMode" type="String" default="DRIVE" />
 
     <aura:handler event="c:childDataTransfer" action="{!c.handleCoordsEvent}"/>
 
@@ -22,20 +21,7 @@
         <h1>LAT : {!v.coords.lat}</h1>
         <h1>LON : {!v.coords.lon}</h1>
         <div class="slds-grid slds-wrap">
-            <div class="slds-col slds-size_1-of-4">
-                <button name="DRIVE" >
-                    <i class="fa-solid fa-car fa-2xl" />
-                </button>
-            </div>
-            <div class="slds-col slds-size_1-of-4">
-                <i class="fa-solid fa-bus fa-2xl" />
-            </div>
-            <div class="slds-col slds-size_1-of-4">
-                <i class="fa-solid fa-person-walking fa-2xl" />
-            </div>
-            <div class="slds-col slds-size_1-of-4">
-                <i class="fa-solid fa-person-biking fa-2xl" />
-            </div>
+            Google Map API에서 대중교통만 정보를 가져오기에 다른 루트 표기 불가.
         </div>
         <div class="slds-grid slds-wrap">
             <div class="slds-col slds-size_1-of-1 slds-align_absolute-center slds-text-heading_large">

@@ -1,0 +1,50 @@
+<template>
+    
+    <div class="fixed-header-animation"></div>
+    <div class="section-header">
+        <ul class="slds-list_horizontal">
+            <template iterator:it={categoryList}>
+                <!-- javascript custom attribute -->
+                <li class="abc" data-key={it.value} onclick={categoryClick} key={it.value}>{it.value}</li>
+            </template>
+            <li>
+                <input type="text" placeholder="Please enter a search term" />
+                <img src={searchIcon} alt="인풋 서치 이미지" />
+            </li>
+        </ul>
+    </div>
+    <div class="content slds-grid slds-wrap">
+        <template iterator:it={imagesCard}>
+            <div class="slds-col slds-size_3-of-12" key={it.value.imgId}>
+                <div class="slds-card">
+                    <div class="slds-card__body slds-card__body_inner slider-card">
+                        <img src={it.value.url} alt={it.value} />
+                    </div>
+                    <footer class="slds-card__footer">
+                        <p>
+                            {it.value.content}
+                        </p>
+                        <p>
+                            <template iterator:it={it.value.badge}>
+                                <span class="card-badge" key={it.value}>{it.value}</span>
+                            </template>
+                        </p>
+                    </footer>
+                </div>
+            </div>
+        </template>
+    </div>
+    <div class="slds-list_horizontal slds-align_absolute-center pagination">
+        <span><button label="">&lt;&lt;</button></span>
+        <span><button>&lt;</button></span>
+        <ul class="slds-list_horizontal">
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+            <li>04</li>
+            <li>05</li>
+        </ul>
+        <span><button>&gt;</button></span>
+        <span><button>&gt;&gt;</button></span>
+    </div>
+</template>

@@ -1,0 +1,76 @@
+.fixed-first-header {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.header-container {
+    height: 80px;
+    border-bottom: 1px solid #EDEFF2;
+    background: #FFF;
+}
+
+.header-container > img {
+    height: 45px; 
+    margin: auto 40px;
+}
+
+.navigation {
+    margin: 0 auto;
+}
+
+.navigation ul li {
+    color: #222;
+    margin: 0 16px;
+    font-size: 14px;
+}
+
+.icon-navigation {
+    margin-left: 0;
+    margin-right: 30px;
+}
+
+.icon-navigation > ul > li {
+    margin: 0 10px;
+    width: 20px;
+}
+
+.fixed-header-top {
+    height: 45px;
+    line-height: 45px;
+    background: #FFF;
+}
+
+.fixed-header-top > div {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.fixed-header-top div ul li {
+    font-size: 13px;
+    color: #616366;
+}
+
+.fixed-header-top div ul li img {
+    height: 16px;
+    margin-top: -5px;
+    margin-right: 5px;
+}
+
+.fixed-header-top div span:nth-child(1),
+.fixed-header-top div span:nth-child(2) {
+    font-size: 13px;
+    color: #959595;
+}
+
+.fixed-header-top div span:nth-child(3) {
+    font-size: 13px;
+    color: #000;
+}
+
+.fixed-header-top div ul li:nth-child(2),
+.fixed-header-top div ul li:nth-child(4) {
+    margin: 20px;
+}

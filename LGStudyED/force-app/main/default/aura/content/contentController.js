@@ -58,25 +58,31 @@
         component.set("v.selectedCategory", event.target.name);
     },
     swiperSlide: function(component, event, helper) {
-        return new Promise((resolve, reject) => {
-            // slidesPerView: 'auto',
-            // centeredSlides: true,
-            var swiper = new Swiper("#swiper", {
-                slidesPerView: '3',
-                spaceBetween: 20,
-                loop: true,
-                autoplay: {
-                  delay: 2000,
-                  disableOnInteraction: false
-                },
-                navigation: {
-                  nextEl: ".right-button",
-                  prevEl: ".left-button"
-                },
-                allowTouchMove: false,
-            });
-            resolve(swiper)
-            console.log("swiper active")
-        })
+        helper.setSwiper()
+        
+
+        // return new Promise((resolve, reject) => {
+        //     // slidesPerView: 'auto',
+        //     // centeredSlides: true,
+        //     var swiper = new Swiper(".mySwiper", {
+        //         slidesPerView: '3',
+        //         spaceBetween: 20,
+        //         loop: true,
+        //         observer: true,
+        //         observeParents: true,
+        //         autoplay: {
+        //           delay: 2000,
+        //           disableOnInteraction: false
+        //         },
+        //         navigation: {
+        //           nextEl: ".right-button",
+        //           prevEl: ".left-button"
+        //         },
+        //         allowTouchMove: false,
+        //     });
+        //     resolve(swiper)
+            
+        //     console.log("swiper active")
+        // })
     }
 })

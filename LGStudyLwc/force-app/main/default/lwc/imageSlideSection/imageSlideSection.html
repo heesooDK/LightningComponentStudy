@@ -1,0 +1,38 @@
+<template>
+    <div class="trand-img-slider">
+        <div id="left-button" class="arrow-button">
+            left
+        </div>
+        <div class="img-slider-container">
+            <div class="img-slider">
+                <div class="slider mySwiper swiper">
+                    <div class="swiper-wrapper">
+                        <template iterator:it={imagesSlide} >
+                            <div class="swiper-slide" key={it.value.id}>
+                            <!-- <div class="slds-card swiper-slide" key={it.value.id}> -->
+                                <div class="slider-card">
+                                <!-- <div class="slds-card__body slds-card__body_inner slider-card"> -->
+                                    <img src={it.value.url} alt={it.value.imgId} />
+                                </div>
+                                <footer>
+                                <!-- <footer class="slds-card__footer"> -->
+                                    <p>
+                                        {it.value.content}
+                                    </p>
+                                    <p>
+                                        <template iterator:it={it.value.badge}>
+                                            <span class="card-badge" key={it.value}>{it.value}</span>
+                                        </template>
+                                    </p>
+                                </footer>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right-button" class="arrow-button">
+            right
+        </div>
+    </div>
+</template>

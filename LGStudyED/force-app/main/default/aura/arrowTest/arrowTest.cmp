@@ -1,3 +1,24 @@
-<aura:component>
-
-</aura:component>	
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <div class="pager">
+        <button type="button" class="{!v.isFirstPage ? 'firstPage disable' : 'firstPage'}" title="첫페이지 이동"
+            onclick="{!c.changePage}" value="first">First Page</button>
+        <button type="button" class="{!v.isFirstPage ? 'prevPage disable' : 'prevPage'}" title="이전 페이지 이동"
+            onclick="{!c.changePage}" value="prev">Prev Page</button>
+        <aura:iteration items="{!v.displayedPages}" var="item">
+            <a class="{!item == v.currentPage ? 'active' : ''}"
+                title="{!item == v.currentPage ? '현재 선택된 페이지' : item + '페이지 이동'}" onclick="{!c.changePage}"
+                value="{!item}">
+                <aura:if isTrue="{! 10 > item}">
+                    {!'0' + item}
+                    <aura:set attribute="else">
+                        {!item}
+                    </aura:set>
+                </aura:if>
+            </a>
+        </aura:iteration>
+        <button type="button" class="{!v.isLastPage ? 'nextPage disable' : 'nextPage'}" title="다음 페이지 이동"
+            onclick="{!c.changePage}" value="next">Next Page</button>
+        <button type="button" class="{!v.isLastPage ? 'lastPage disable' : 'lastPage'}" title="마지막 페이지 이동"
+            onclick="{!c.changePage}" value="last">Last Page</button>
+    </div>
+</aura:component>

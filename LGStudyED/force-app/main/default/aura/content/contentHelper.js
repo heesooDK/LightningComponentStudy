@@ -19,5 +19,27 @@
             $A.util.removeClass(headerCmp, 'slds-is-fixed');
             $A.util.removeClass(headerAnimation, 'slds-is-fixed');
         }
+    },
+    setSwiper: function () {
+        return new Promise((resolve, reject) => {
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: '3',
+                spaceBetween: 20,
+                loop: true,
+                observer: true,
+                observeParents: true,
+                autoplay: {
+                  delay: 2000,
+                  disableOnInteraction: false
+                },
+                navigation: {
+                  nextEl: ".right-button",
+                  prevEl: ".left-button"
+                },
+                allowTouchMove: false,
+            });
+
+            resolve(swiper)
+        })
     }
 })

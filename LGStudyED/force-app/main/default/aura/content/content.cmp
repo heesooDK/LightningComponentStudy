@@ -1,7 +1,7 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
 
-    <ltng:require scripts="{!$Resource.swiper + '/swiper-bundle.min.js'}" styles="https://unpkg.com/swiper/swiper-bundle.min.css" 
-                    afterScriptsLoaded="{!c.swiperSlide}" />
+    <ltng:require scripts="{!$Resource.swiper + '/swiper-bundle.min.js'}" styles="{!$Resource.swiper + '/swiper-bundle.min.css'}" 
+                    afterScriptsLoaded="{!c.swiperSlide}"  />
 
     <aura:attribute name="inputSearchImg" type="String" />
     <!-- <aura:attribute name="slideLeft" type="Decimal" default="0" /> -->
@@ -16,7 +16,7 @@
             <section id="first-section">
                 <h1>트렌드</h1>
                 <div class="trand-img-slider">
-                    <div aura:id="leftButton" class="arrow-button">
+                    <div aura:id="leftButton" class="arrow-button left-button">
                         <img src="{! $Resource.sliderArrow + '/left.svg'}" alt="LEFT" />
                     </div>
                     <div class="img-slider-container">

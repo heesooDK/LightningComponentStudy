@@ -1,0 +1,17 @@
+.content-container {
+    width: 1560px;
+    margin-top: 90px;
+    flex-direction: column;
+}
+
+.content-container .first-section h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.second-section {
+    width: 100%;
+    margin-top: 120px;
+}

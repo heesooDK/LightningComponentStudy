@@ -1,0 +1,180 @@
+.section-header {
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.slds-is-fixed ul {
+    align-items: center;
+}
+
+.section-header ul li {
+    font-size: 18px;
+    color: #CACACA;
+    margin: 0 16px;
+}
+
+.section-header ul li:first-child {
+    margin-left: 0;
+}
+
+.section-header ul li:last-child {
+    height: 40px;
+    padding: 0 16px;
+    background-color: #F3F4F6;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.slds-is-fixed ul li:last-child {
+    background-color: #404750;
+}
+
+.section-header ul li:last-child input {
+    color: #282828;
+    height: 100%;
+    background: #F3F4F6;
+    border: none;
+}
+
+.section-header ul li:last-child img {
+    margin-left: 8;
+    object-fit: fill;
+}
+
+.section-header ul li:last-child input:focus {
+    outline: none;
+}
+
+.section-header ul li.is-active {
+    color: #282828 !important;
+    font-weight: 700;
+}
+
+.content > div {
+    margin-bottom: 40px;
+    margin-right: 24px;
+    width: 372px;
+}
+
+.content > div:nth-child(4n) {
+    margin-right: 0;
+}
+
+.content div footer p:first-child {
+    margin-bottom: 12px;
+}
+
+.content div footer p:first-child > span:first-child {
+    margin-left: 0;
+}
+
+.pagination {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.pagination span {
+    width: 20px;
+}
+
+.pagination span:nth-child(2):nth-child(3) {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.pagination ul li {
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.slds-is-fixed ul {
+    margin: 0 auto;
+    max-width: 1560px;
+    height: 64px;
+}
+
+.slds-is-fixed ul > li:first-child {
+    margin-left: 0px !important;
+}
+
+.slds-is-fixed ul li:nth-child(5) {
+    margin-right: 0px !important;
+}
+
+.slds-is-fixed ul li:not(:last-child) {
+    color: #7A7F85;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.slds-is-fixed ul li:last-child,
+.slds-is-fixed ul li:last-child input {
+    color: #FFF;
+    background: #535A62;
+}
+
+.slds-is-fixed ul li.is-active {
+    color: #FFF !important;
+    font-weight: 700;
+}
+
+.slds-is-fixed ul li:not(:last-child) {
+    color: #7A7f85;
+}
+
+.slds-card > div {
+    position: relative;
+    padding-top: 100%;
+    overflow: hidden;
+}
+
+.slds-card footer {
+    margin: 15px;
+}
+
+.slds-card footer p:first-child {
+    font-weight: 900;
+}
+
+.slds-card:hover  {
+    box-shadow: rgba(0, 0, 0, 0.05) 10px 16px 12px -2px;
+    transition: all 0.1s linear;
+}
+
+.slds-card:hover img {
+    transform: scale(1.1);
+    transition: all 0.1s linear;
+    overflow: hidden;
+}
+
+.slds-card:hover p:first-child {
+    text-decoration: underline;
+}
+
+.fixed-header-animation {
+    height: 0;
+    max-height: 64px;
+    background: #FFF;
+    position: fixed;
+    top: 125px;
+    z-index: 11;
+}
+
+.slider-card {
+    margin: 0;
+    padding: 0;
+}
+
+.slider-card img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
